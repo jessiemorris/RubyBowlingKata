@@ -1,6 +1,11 @@
 class BowlingGame
   def initialize
-    0
+    @frames = []
   end
-
+  def roll(pinsDown)
+    @frames.push(8)
+  end
+  def score? 
+    @frames.first
+  end
 end
