@@ -1,14 +1,27 @@
 class BowlingGame
   def initialize
     @rolls = []
-    @frameCount = 1
-    @rollCount = 0
-    @currentPinsDown = 0
   end
   def roll(pinsDown)
     @rolls.push(pinsDown)
   end
   def score? 
-    @rolls.reduce(0, :+)
+    score = 0
+
+    score
+  end
+  def isStrike? frameIndex
+    if(@rolls[(frameIndex-1)* 2] == 10)
+      true
+    else
+      false
+    end
+  end
+  def isSpare? frameIndex
+    if(@rolls[(frameIndex-1)*2] + @rolls[(frameIndex-1)*2 + 1] == 10)
+      true
+    else
+      false
+    end
   end
 end
