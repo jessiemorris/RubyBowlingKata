@@ -2,10 +2,6 @@ require_relative '../lib/bowling_game.rb'
 
 describe BowlingGame do
 
-  it "returns 0 when asked for score of a new game" do
-    expect(BowlingGame.new.score?).to eq(0)
-  end
-
   #Utility Method Checks
   it "returns true when checking for a spare in frame 1" do
     game = BowlingGame.new
@@ -34,26 +30,24 @@ describe BowlingGame do
     expect(game.isStrike?(1)).to eq(false)
   end
 
-
-
-  xit "returns 8 when a single 8 is thrown" do
+  it "returns 80 when 10 frames of 8s are rolled" do
     game = BowlingGame.new
-    game.roll(8)
-    expect(game.score?).to eq(8)
+    for frame in 1..10
+      game.roll(8)
+      game.roll(0)
+    end
+    expect(game.score?).to eq(80)
   end
-  xit "returns 9 when 8,1 is thrown" do
-    game = BowlingGame.new
-    game.roll(8)
-    game.roll(1)
-    expect(game.score?).to eq(9)
-  end
-
-  xit "returns 28 for 9/, 90" do
+  it "returns 28 for single spare game" do
     game = BowlingGame.new
     game.roll(9)
     game.roll(1)
     game.roll(9)
+    game.roll(0)
+    for frame in 3..10
+      game.roll(0)
+      game.roll(0)
+    end
     expect(game.score?).to eq(28)
   end
-
 end 

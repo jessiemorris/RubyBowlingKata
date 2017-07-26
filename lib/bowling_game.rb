@@ -7,7 +7,15 @@ class BowlingGame
   end
   def score? 
     score = 0
-
+    for frameIndex in 1..10
+      if isSpare? frameIndex
+        score += 10 + @rolls[(frameIndex-1)*2 + 2]
+      elsif isStrike? frameIndex
+        score += 10 + frameTotal?(frameIndex + 1)
+      else
+        score += frameTotal? frameIndex
+      end
+    end
     score
   end
   def isStrike? frameIndex
@@ -23,5 +31,8 @@ class BowlingGame
     else
       false
     end
+  end
+  def frameTotal? frameIndex
+    @rolls[(frameIndex-1)*2] + @rolls[(frameIndex-1)*2 + 1]
   end
 end
