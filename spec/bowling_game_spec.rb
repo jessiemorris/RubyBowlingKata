@@ -23,7 +23,7 @@ describe BowlingGame do
     game.roll(3)
     expect(game.isSpare?(1)).to eq(false)
   end
-  it "returns true when checking for a strike in frame 1" do
+  it "returns false when checking for a strike in frame 1" do
     game = BowlingGame.new
     game.roll(9)
     game.roll(5)
