@@ -11,7 +11,7 @@ class BowlingGame
       if isSpare? frameIndex
         score += 10 + @rolls[(frameIndex-1)*2 + 2]
       elsif isStrike? frameIndex
-        score += 10 + frameTotal?(frameIndex + 1)
+        score += 10 + @rolls[(frameIndex-1)*2 + 1] + @rolls[(frameIndex-1)*2 + 2] 
       else
         score += frameTotal? frameIndex
       end

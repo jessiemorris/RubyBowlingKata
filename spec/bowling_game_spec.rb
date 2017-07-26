@@ -50,4 +50,11 @@ describe BowlingGame do
     end
     expect(game.score?).to eq(28)
   end
+  it "returns 300 for a perfect game" do
+    game = BowlingGame.new
+    for roll in 1..12
+      game.roll(10)
+    end
+    expect(game.score?).to eq(300)
+  end
 end 
