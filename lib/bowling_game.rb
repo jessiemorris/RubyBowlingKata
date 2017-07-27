@@ -26,13 +26,14 @@ class BowlingGame
     score
   end
 
-  def isStrike frameIndex
+  # Predicate methods end in a =?= and they don't use =is=.
+  def strike? frameIndex
     # Ruby always returns the value of its last expression, so you don't
     # need to wrap this in an if/else.
     @rolls[frameIndex] == 10
   end
 
-  def isSpare frameIndex
+  def spare? frameIndex
     # No need for if/else here either.
     @rolls[frameIndex] + @rolls[frameIndex + 1] == 10
   end
