@@ -1,33 +1,33 @@
-require_relative '../lib/bowling_game.rb'
+require 'bowling_game.rb'
 
 describe BowlingGame do
 
   #Utility Method Checks
   it "returns true when checking for a spare in frame 1" do
     game = BowlingGame.new
-    game.roll(8)
-    game.roll(2)
+    game.roll(9)
+    game.roll(1)
     game.roll(3)
-    expect(game.isSpare?(1)).to eq(true)
+    expect(game.isSpare?(0)).to eq(true)
   end
   it "returns true when checking for a strike in frame 1" do
     game = BowlingGame.new
     game.roll(10)
     game.roll(5)
-    expect(game.isStrike?(1)).to eq(true)
+    expect(game.isStrike?(0)).to eq(true)
   end
   it "returns false when checking for a spare in frame 1" do
     game = BowlingGame.new
     game.roll(8)
     game.roll(1)
     game.roll(3)
-    expect(game.isSpare?(1)).to eq(false)
+    expect(game.isSpare?(0)).to eq(false)
   end
   it "returns false when checking for a strike in frame 1" do
     game = BowlingGame.new
     game.roll(9)
     game.roll(5)
-    expect(game.isStrike?(1)).to eq(false)
+    expect(game.isStrike?(0)).to eq(false)
   end
 
   it "returns 80 when 10 frames of 8s are rolled" do
