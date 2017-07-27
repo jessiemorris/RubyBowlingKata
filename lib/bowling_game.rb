@@ -5,7 +5,7 @@ class BowlingGame
   def roll(pinsDown)
     @rolls.push(pinsDown)
   end
-  def score? 
+  def score 
     score = 0
     currentFrameIndex = 0
     for frame in 1..10
@@ -22,21 +22,21 @@ class BowlingGame
     end
     score
   end
-  def isStrike? frameIndex
+  def isStrike frameIndex
     if(@rolls[frameIndex] == 10)
       true
     else
       false
     end
   end
-  def isSpare? frameIndex
+  def isSpare frameIndex
     if (@rolls[frameIndex] + @rolls[frameIndex + 1] == 10)
       true
     else
       false
     end
   end
-  def frameTotal? frameIndex
+  def frameTotal frameIndex
     (@rolls[frameIndex] || 0) + (@rolls[frameIndex + 1] || 0)
   end
 end
