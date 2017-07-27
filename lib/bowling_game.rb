@@ -9,14 +9,14 @@ class BowlingGame
     score = 0
     currentFrameIndex = 0
     for frame in 1..10
-      if isSpare? currentFrameIndex
+      if isSpare currentFrameIndex
         score += 10 + @rolls[currentFrameIndex + 2]
         currentFrameIndex += 2
-      elsif isStrike? currentFrameIndex
+      elsif isStrike currentFrameIndex
         score += 10 + @rolls[currentFrameIndex + 1] + @rolls[currentFrameIndex + 2]
         currentFrameIndex += 1
       else
-        score += frameTotal? currentFrameIndex
+        score += frameTotal currentFrameIndex
         currentFrameIndex += 2
       end
     end
